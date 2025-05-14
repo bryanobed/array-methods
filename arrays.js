@@ -41,8 +41,8 @@
 // console.log("Original",arrSplice); //  ['pera' ]
 // const sinEliminar = ["name1", "name2", "name3"];
 // const eliminados = sinEliminar.splice(1, 0, "name4", "name5");
-// console.log("Eliminados",eliminados);
-// console.log("Original",sinEliminar);
+// console.log("Eliminados", eliminados); // []
+// console.log("Original", sinEliminar); // [ 'name1', 'name4', 'name5', 'name2', 'name3' ]
 
 // .slice(inicio, fin) copia una parte del array sin modificar el original
 // const arrslice = ["pera", "manzana", "banana"];
@@ -256,11 +256,9 @@
 
 // lastIndexOf() Devuelve el índice de la última vez que aparece un elemento. Si no lo encuentra, devuelve -1.
 // ⚠️ Solo devuelve la última coincidencia
-const letras = ['a', 'b', 'c', 'a', 'd', 'a'];
+const letras = ["a", "b", "c", "a", "d", "a"];
 // console.log(letras.indexOf('a'));      // 👉 0 (primera aparición con indexOf)
 // console.log(letras.lastIndexOf('a'));  // 👉 5 (última aparición con lastIndexOf)
 
 const palabras = ["hola", "mundo", "hola", "mundo"];
 console.log(palabras.lastIndexOf("mundo"));
-
-

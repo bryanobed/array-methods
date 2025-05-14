@@ -2,10 +2,11 @@
 
 // Promise.allSettled() Espera a que todas las promesas terminen, sin importar si fallan o se resuelven. Devuelve un array con el estado y valor o razón:
 
+// Promise.any() La primera que finalice de forma correcta(resolve). Si una finaliza mal, espera a la siguiente. Si fallan todas lanza error.
+
 // Promise.race() Responde con la primera promesa que termine, sin importar si se resuelve o falla.
 
 
-// Promise.any() La primera que finalice de forma correcta(resolve). Si una finaliza mal, espera a la siguiente. Si fallan todas lanza error.
 
 // 🟦 1. Promise.all() → Todas deben resolverse bien
 const api1 = () => Promise.resolve("✅ Usuario cargado");
