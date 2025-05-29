@@ -57,7 +57,7 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 // Object.groupBy(datos, criterio)	Agrupa en un  los datos por el criterio indicado.
 // Map.groupBy(datos, criterio)	Agrupa en un  los datos por el criterio indicado.
 // Por parámetro, pasaremos la estructura de datos ARRAY y en el segundo parámetro es una FUNCTION que hará de callback para definir cuál es el criterio que vamos a escoger.
-  
+
 // El método Object.groupBy()
 // const users = [
 //   { name: "ManzDev", type: "streamer", color: "indigo" },
@@ -114,17 +114,16 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 
 // El método Map.groupBy()
 const users = [
-  { name: "ManzDev",    type: "streamer",  color: "indigo" },
+  { name: "ManzDev", type: "streamer", color: "indigo" },
   { name: "afor_digital", type: "streamer", color: "blue" },
-  { name: "BlurSoul_",    type: "moderator",color: "indigo" },
-  { name: "felixicaza",   type: "moderator",color: "blue" },
-  { name: "pheralb",      type: "moderator",color: "green" },
-  { name: "omaaraguirre", type: "viewer",   color: "orange" },
-  { name: "LuisLlamas_es",type: "viewer",   color: "orange" },
-  { name: "ZeroBl",       type: "viewer",   color: "black" },
+  { name: "BlurSoul_", type: "moderator", color: "indigo" },
+  { name: "felixicaza", type: "moderator", color: "blue" },
+  { name: "pheralb", type: "moderator", color: "green" },
+  { name: "omaaraguirre", type: "viewer", color: "orange" },
+  { name: "LuisLlamas_es", type: "viewer", color: "orange" },
+  { name: "ZeroBl", type: "viewer", color: "black" },
 ];
 const userByTypeMap = Map.groupBy(users, (user) => user.type);
-
 
 // Agrupar por criterio (legacy)
 // En el caso de no poder utilizar estos nuevos métodos, o simplemente tener curiosidad como sería hacerlo sin ellos, puedes observar el siguiente ejemplo, donde agrupamos sin necesidad de los métodos .groupBy():
@@ -139,7 +138,6 @@ const userByTypeMap = Map.groupBy(users, (user) => user.type);
 5️⃣ Y los metemos en el objeto, indexado por dicho tipo
 */
 
-
 // Resumen  🧩 Iteradores de objetos en JavaScript
 // | Método                    | Qué hace                                                  |
 // | ------------------------- | --------------------------------------------------------- |
@@ -147,8 +145,6 @@ const userByTypeMap = Map.groupBy(users, (user) => user.type);
 // | `Object.values(obj)`      | Devuelve un array con los **valores** del objeto          |
 // | `Object.entries(obj)`     | Devuelve un array de pares `[clave, valor]`               |
 // | `Object.fromEntries(arr)` | Convierte un array de pares `[clave, valor]` en un objeto |
-
-
 
 const users333 = [
   { name: "ManzDev", type: "streamer", color: "indigo" },
@@ -158,7 +154,7 @@ const users333 = [
   { name: "pheralb", type: "moderator", color: "green" },
   { name: "omaaraguirre", type: "viewer", color: "orange" },
   { name: "LuisLlamas_es", type: "viewer", color: "orange" },
-  { name: "ZeroBl", type: "viewer", color: "black" }
+  { name: "ZeroBl", type: "viewer", color: "black" },
 ];
 const userByTypes3423423 = Map.groupBy(users333, (user) => user.type);
 console.log(userByTypes3423423);
