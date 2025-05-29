@@ -262,3 +262,49 @@ const letras = ["a", "b", "c", "a", "d", "a"];
 
 const palabras = ["hola", "mundo", "hola", "mundo"];
 console.log(palabras.lastIndexOf("mundo"));
+
+
+/* 
+| Método             | ¿Muta el array? | Valor que retorna                | Descripción breve                                                                 |
+|--------------------|-----------------|--------------------------------|----------------------------------------------------------------------------------|
+| `push()`           | ✅ Sí           | Nueva longitud del array         | Agrega uno o más elementos al final.                                            |
+| `pop()`            | ✅ Sí           | Elemento eliminado               | Elimina el último elemento.                                                     |
+| `shift()`          | ✅ Sí           | Elemento eliminado               | Elimina el primer elemento.                                                     |
+| `unshift()`        | ✅ Sí           | Nueva longitud del array         | Agrega uno o más elementos al principio.                                        |
+| `splice()`         | ✅ Sí           | Array con elementos eliminados   | Cambia el contenido eliminando y/o agregando elementos.                         |
+| `slice()`          | ❌ No           | Nuevo array                      | Devuelve una copia de una parte del array.                                      |
+| `concat()`         | ❌ No           | Nuevo array                      | Une dos o más arrays.                                                           |
+| `join()`           | ❌ No           | String                           | Une todos los elementos en una cadena.                                          |
+| `includes()`       | ❌ No           | `true` o `false`                 | Verifica si un valor está presente.                                             |
+| `indexOf()`        | ❌ No           | Índice o `-1`                    | Primer índice de un valor, o `-1` si no se encuentra.                           |
+| `lastIndexOf()`    | ❌ No           | Índice o `-1`                    | Último índice de un valor, o `-1` si no se encuentra.                           |
+| `reverse()`        | ✅ Sí           | El mismo array                   | Invierte el orden de los elementos.                                             |
+| `sort()`           | ✅ Sí           | El mismo array                   | Ordena los elementos (por defecto, alfabéticamente).                            |
+| `toSorted()`       | ❌ No           | Nuevo array                      | Ordena como `sort()` pero sin modificar el original.                            |
+| `toReversed()`     | ❌ No           | Nuevo array                      | Invierte como `reverse()` pero sin modificar el original.                       |
+| `toSpliced()`      | ❌ No           | Nuevo array                      | Versión inmutable de `splice()`.                                                |
+| `with()`           | ❌ No           | Nuevo array                      | Devuelve copia con un valor reemplazado en un índice.                           |
+| `map()`            | ❌ No           | Nuevo array                      | Crea un nuevo array aplicando una función a cada elemento.                      |
+| `forEach()`        | ❌ No           | `undefined`                     | Ejecuta una función por cada elemento (no devuelve nada).                       |
+| `filter()`         | ❌ No           | Nuevo array                      | Crea un nuevo array con los elementos que cumplan una condición.                |
+| `find()`           | ❌ No           | Primer elemento o `undefined`    | Devuelve el primer elemento que cumple la condición.                            |
+| `findIndex()`      | ❌ No           | Índice o `-1`                    | Índice del primer elemento que cumple la condición.                             |
+| `findLast()`       | ❌ No           | Último elemento o `undefined`    | Devuelve el último elemento que cumple la condición.                            |
+| `findLastIndex()`  | ❌ No           | Índice o `-1`                    | Índice del último elemento que cumple la condición.                             |
+| `some()`           | ❌ No           | `true` o `false`                 | Al menos un elemento cumple la condición.                                       |
+| `every()`          | ❌ No           | `true` o `false`                 | Todos los elementos cumplen la condición.                                       |
+| `reduce()`         | ❌ No           | Valor acumulado                  | Reduce el array a un solo valor (izquierda a derecha).                          |
+| `reduceRight()`    | ❌ No           | Valor acumulado                  | Reduce el array a un solo valor (derecha a izquierda).                          |
+| `at()`             | ❌ No           | Elemento o `undefined`           | Devuelve el elemento en el índice (permite negativos).                          |
+| `fill()`           | ✅ Sí           | El mismo array                   | Rellena elementos con un valor específico.                                      |
+| `copyWithin()`     | ✅ Sí           | El mismo array                   | Copia una parte del array dentro del mismo.                                     |
+| `from()`           | ❌ No           | Nuevo array                      | Crea un array desde un iterable.                                                |
+| `of()`             | ❌ No           | Nuevo array                      | Crea un array con los argumentos dados.                                         |
+| `isArray()`        | ❌ No           | `true` o `false`                 | Verifica si el valor es un array.                                               |
+| `entries()`        | ❌ No           | Iterador `[índice, valor]`       | Iterador de pares índice-valor.                                                 |
+| `keys()`           | ❌ No           | Iterador de claves               | Iterador con los índices del array.                                             |
+| `values()`         | ❌ No           | Iterador de valores              | Iterador con los valores del array.                                             |
+| `toString()`       | ❌ No           | String                           | Convierte el array a texto (separado por comas).                                |
+| `toLocaleString()` | ❌ No           | String                           | Convierte el array a texto usando configuración regional.                       |
+| `valueOf()`        | ❌ No           | El mismo array                   | Devuelve el valor primitivo del array (es el mismo array).                      |
+*/
