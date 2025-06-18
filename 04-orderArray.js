@@ -25,10 +25,12 @@ ARRAY.toSorted(criterio) ✅	Idem, pero ordenado por el criterio establecido por
 // console.log(names);
 // console.log(sortedNames === names);
 
-const elements = [8, 4];
+const elements = [1, 2, 3, 4, 5];
 const alphaOrder = (a, b) => {
+  console.log(`a: ${a}, b: ${b}`);
   if (a > b) return 1;
   if (a < b) return -1;
   return 0;
 }
 const sortedElements = elements.toSorted(alphaOrder);
+console.log(sortedElements);

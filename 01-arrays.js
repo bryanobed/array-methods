@@ -606,7 +606,3 @@
 // const valFecha = fecha.valueOf();
 // console.log(valFecha);  // 1736828400000 (milisegundos desde 1970)
 // console.log(typeof valFecha); // 'number'
-
-
-
-

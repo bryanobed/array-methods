@@ -1,7 +1,7 @@
 // Convertir a array
 /* 
 Array.from(obj) 	Intenta convertir el obj en un array.
-Array.from(obj, fmap) 	Idem, pero ejecuta la función fmap por cada elemento. Equivalente a .map()
+Array.from(obj, fmap) 	Identico de arriba, pero ejecuta la función fmap por cada elemento. Equivalente a .map()
 Array.from({ length:size})	Crea un array a partir de un  de tamaño size, relleno de 
 Array.concat(e1, e2, e3...)	Devuelve los elementos pasados por parámetro concatenados al final del array.
 Sring.join(sep)	Une los elementos del array mediante separadores sep en un .
@@ -15,9 +15,9 @@ Sring.join(sep)	Une los elementos del array mediante separadores sep en un .
 // const loMismo1 = Array.from(text2, (number) => Number(number));
 // const loMismo2 = Array.from(text2, Number);
 // const loMismo3 = [...text2].map(Number);
-// console.log(loMismo1);
-// console.log(loMismo2);
-// console.log(loMismo3);
+// console.log(loMismo1); // [ 1, 2, 3, 4, 5 ]
+// console.log(loMismo2); // [ 1, 2, 3, 4, 5 ]
+// console.log(loMismo3); // [ 1, 2, 3, 4, 5 ]
 
 // Desestructuración de arrays -> spread y rest
 // spread operator
@@ -36,7 +36,8 @@ Sring.join(sep)	Une los elementos del array mediante separadores sep en un .
 
 // Reestructuración de arrays
 // const par = [3,4];
-// const complete = [1,2, ...par, 4] // [1, 2, 3, 4]
+// const complete = [1,2, ...par, 4] // [1, 2, 3, 4, 4]
+// console.log(complete);
 
 // search elements in an arrays
 /* 
@@ -80,7 +81,7 @@ ARRAY.splice(start, size, e1, e2...) ⚠️	Idem. Además, luego inserta e1, e2.
 ARRAY.toSpliced(start, size)  ✅	Idem a splice(start, size), pero sin mutar el array original.
 ARRAY.toSpliced(st, sz, e1, e2...)  ✅	Idem a splice(st, sz, e1, e2..), pero sin mutar el array original.
 ARRAY.copyWithin(pos, start, end)  ⚠️	Muta el array, cambiando en pos y copiando desde start a end.
-ARRAY.fill(element, start, end)  ⚠️	Cambia los elementos del  por element desde start hasta end.
+ARRAY.fill(element, start, end)  ⚠️	Cambia los elementos del  por element desde start hasta end (último excluido).
 ARRAY.with(index, item)  ✅	Devuelve una copia del original, con el elemento index modificado.
 
 ✅ El array original está seguro (no muta).
@@ -89,19 +90,17 @@ ARRAY.with(index, item)  ✅	Devuelve una copia del original, con el elemento in
 
 // toSpliced(start, deleteCount)
 // const letters = ["a", "b", "c", "d", "e"];
-// El array original no cambia
-// console.log(letters.toSpliced(0, 2)); // ['a', 'b']
-// El array original no cambia
-// console.log(letters.toSpliced(2, 1)); // ['c', 'd', 'e']
+// // El array original no cambia
+// console.log(letters.toSpliced(0, 2)); // ['c', 'd', 'e']
+// // El array original no cambia
+// console.log(letters.toSpliced(2, 1)); // [ 'a', 'b', 'd', 'e' ]
 // console.log(letters);
-
 
 // 🔹 with(index, value) – 🧱 devuelve un nuevo array con un valor reemplazado
 // const arr = ["a", "b", "c", "d"];
 // const newArr = arr.with(1, "x");
-// console.log(arr);
-// console.log(newArr);
-
+// console.log(arr); // [ 'a', 'b', 'c', 'd' ]
+// console.log(newArr); // [ 'a', 'x', 'c', 'd' ]
 
 // 🔹 copyWithin(pos, start, end) – 🔁 sobrescribe elementos desde una copia interna
 // const arr = ["a", "b", "c", "d"];
@@ -121,5 +120,5 @@ end (opcional): El índice en el que dejar de rellenar (no incluye el índice fi
 
 // con start y end
 const arr = [1, 2, 3, 4, 5];
-arr.fill(0, 1, 4);  // Rellena de 1 a 3 (sin incluir el 4)
-console.log(arr);    // [1, 0, 0, 0, 5]
+arr.fill(0, 1, 4); // Rellena de 1 a 3 (último exluido)
+console.log(arr); // [1, 0, 0, 0, 5]

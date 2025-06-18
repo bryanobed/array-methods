@@ -23,9 +23,9 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 //   },
 // };
 
-// Object.keys(user); // ["name", "life", "power", "talk"]
-// Object.values(user); // ["Manz", 99, 10, ƒ]
-// Object.entries(user); // [["name", "Manz"], ["life", 99], ["power", 10], ["talk", ƒ]]
+// console.log(Object.keys(user)); // ["name", "life", "power", "talk"]
+// console.log(Object.values(user)); // ["Manz", 99, 10, ƒ]
+// console.log(Object.entries(user)); // [["name", "Manz"], ["life", 99], ["power", 10], ["talk", ƒ]]
 // console.log(Object.fromEntries(Object.entries(user)));
 
 // un ARRAY también es un OBJECT
@@ -43,7 +43,7 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 //   entries.push([key, value]);
 // }
 // const user = Object.fromEntries(entries);
-// console.log(object);
+// console.log(user);
 
 // Otra forma, más compacta, pero que quizás requiere más experiencia, sería la siguiente:
 // const keys = ["name", "life", "power", "talk"];
@@ -51,6 +51,7 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 
 // const entries = values.map((value, index) => [keys[index], value]);
 // const user = Object.fromEntries(entries);
+// console.log(user);
 
 // Agrupar datos por criterio
 // Método	                          Descripción
@@ -58,8 +59,8 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 // Map.groupBy(datos, criterio)	Agrupa en un  los datos por el criterio indicado.
 // Por parámetro, pasaremos la estructura de datos ARRAY y en el segundo parámetro es una FUNCTION que hará de callback para definir cuál es el criterio que vamos a escoger.
 
-// El método Object.groupBy()
-// const users = [
+// El método Object.groupBy() - devuelve un objeto con claves string.
+// const users2= [
 //   { name: "ManzDev", type: "streamer", color: "indigo" },
 //   { name: "afor_digital", type: "streamer", color: "blue" },
 //   { name: "BlurSoul_", type: "moderator", color: "indigo" },
@@ -69,9 +70,10 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 //   { name: "LuisLlamas_es", type: "viewer", color: "orange" },
 //   { name: "ZeroBl", type: "viewer", color: "black" },
 // ];
-// const userByType = Object.groupBy(users, (user) => user.type);
+// const userByType = Object.groupBy(users2, (user) => user.type);
+// console.log( Object.assign({}, userByType) );
 
-// usersByType:
+// Salida Object.groupBy usersByType:
 // {
 //   streamer: [
 //     { name: "ManzDev", type: "streamer", color: "indigo" },
@@ -94,7 +96,7 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 // // console.log(userByType.moderator); // imprimir solo moderator
 // console.log(userByType.viewer); // imprimir solo viewer
 
-// // usersByColor:
+// Salida Object.groupBy usersByColor:
 // {
 //   black: [{ name: "ZeroBl", type: "viewer", color: "black" }];
 //   blue: [
@@ -112,24 +114,28 @@ Object.fromEntries(array) Construye un objeto con un array de pares [key, valor]
 //   ];
 // }
 
-// El método Map.groupBy()
-const users = [
-  { name: "ManzDev", type: "streamer", color: "indigo" },
-  { name: "afor_digital", type: "streamer", color: "blue" },
-  { name: "BlurSoul_", type: "moderator", color: "indigo" },
-  { name: "felixicaza", type: "moderator", color: "blue" },
-  { name: "pheralb", type: "moderator", color: "green" },
-  { name: "omaaraguirre", type: "viewer", color: "orange" },
-  { name: "LuisLlamas_es", type: "viewer", color: "orange" },
-  { name: "ZeroBl", type: "viewer", color: "black" },
-];
-const userByTypeMap = Map.groupBy(users, (user) => user.type);
+// El método Map.groupBy() - devuelve un Map, permite cualquier tipo de clave y mantiene orden.
+// const users = [
+//   { name: "ManzDev", type: "streamer", color: "indigo" },
+//   { name: "afor_digital", type: "streamer", color: "blue" },
+//   { name: "BlurSoul_", type: "moderator", color: "indigo" },
+//   { name: "felixicaza", type: "moderator", color: "blue" },
+//   { name: "pheralb", type: "moderator", color: "green" },
+//   { name: "omaaraguirre", type: "viewer", color: "orange" },
+//   { name: "LuisLlamas_es", type: "viewer", color: "orange" },
+//   { name: "ZeroBl", type: "viewer", color: "black" },
+// ];
+
+// // Salida con Map.groupBy
+// const userByTypeMap = Map.groupBy(users, (user) => user.type);
+// console.log(userByTypeMap);
+
 
 // Agrupar por criterio (legacy)
 // En el caso de no poder utilizar estos nuevos métodos, o simplemente tener curiosidad como sería hacerlo sin ellos, puedes observar el siguiente ejemplo, donde agrupamos sin necesidad de los métodos .groupBy():
-// const types = [...new Set(users.map((user) => user.type))]; // const types = ["streamer", "moderator", "viewer"];
-// const userByType= {};
-// types.forEach(type => (usersByType[type] = users.filter(user => user.type === type)))
+const types = [...new Set(users.map((user) => user.type))]; // const types = ["streamer", "moderator", "viewer"];
+const userByType= {};
+types.forEach(type => (usersByType[type] = users.filter(user => user.type === type)))
 /* 
 1️⃣ Primero obtenemos los tipos de los usuarios en un Set para que no se repitan
 2️⃣ Luego, desestructuramos para convertirlo en un OBJECT
@@ -146,31 +152,31 @@ const userByTypeMap = Map.groupBy(users, (user) => user.type);
 // | `Object.entries(obj)`     | Devuelve un array de pares `[clave, valor]`               |
 // | `Object.fromEntries(arr)` | Convierte un array de pares `[clave, valor]` en un objeto |
 
-const users333 = [
-  { name: "ManzDev", type: "streamer", color: "indigo" },
-  { name: "afor_digital", type: "streamer", color: "blue" },
-  { name: "BlurSoul_", type: "moderator", color: "indigo" },
-  { name: "felixicaza", type: "moderator", color: "blue" },
-  { name: "pheralb", type: "moderator", color: "green" },
-  { name: "omaaraguirre", type: "viewer", color: "orange" },
-  { name: "LuisLlamas_es", type: "viewer", color: "orange" },
-  { name: "ZeroBl", type: "viewer", color: "black" },
-];
-const userByTypes3423423 = Map.groupBy(users333, (user) => user.type);
-console.log(userByTypes3423423);
-console.log(Object.fromEntries(userByTypes3423423));
-const objec = Object.groupBy(users333, (user) => user.color);
-// console.log(Object.assign({}, objec));
+// const users333 = [
+//   { name: "ManzDev", type: "streamer", color: "indigo" },
+//   { name: "afor_digital", type: "streamer", color: "blue" },
+//   { name: "BlurSoul_", type: "moderator", color: "indigo" },
+//   { name: "felixicaza", type: "moderator", color: "blue" },
+//   { name: "pheralb", type: "moderator", color: "green" },
+//   { name: "omaaraguirre", type: "viewer", color: "orange" },
+//   { name: "LuisLlamas_es", type: "viewer", color: "orange" },
+//   { name: "ZeroBl", type: "viewer", color: "black" },
+// ];
+// const userByTypes3423423 = Map.groupBy(users333, (user) => user.type);
+// console.log(userByTypes3423423);
+// console.log(Object.fromEntries(userByTypes3423423));
+// const objec = Object.groupBy(users333, (user) => user.color);
+// // console.log(Object.assign({}, objec));
 
 /* 
 🔸 Object.groupBy() → "Cuando quiero agrupar y exportar como JSON."
 Devuelve un objeto {}.
 Claves son strings.
 Sirve para agrupar fácilmente y exportar como JSON.
-
 🔸 Map.groupBy() → "Cuando necesito más poder y tipos de claves."
 Devuelve un Map.
 Claves pueden ser cualquier tipo (string, número, símbolo...).
 Sirve para estructuras más complejas y flexibles.
+tienes sus métodos de map -> has(), get(), set(), delete(), clear(), 
 
 */

@@ -1,16 +1,15 @@
 // Convertir JSON a objeto JSON.parse():
 // los json no soporta funciones
-
 // const json = `{
 //   "name": "Manz",
 //   "life": 99
 // }`;
 // const user = JSON.parse(json);
 // console.log(user); // { name: 'Manz', life: 99 }
-// console.log(user.name);
-// console.log(user.life);
+// console.log(user.name); // Manz
+// console.log(user.life); // 99
 
-// // Convertir objeto a JSON.parse():
+// // Convertir objeto a JSON.stringify():
 // // los obj si soporta funciones
 // const user2 = {
 //   name: "Manz",
@@ -19,16 +18,15 @@
 //     return "Hola!";
 //   },
 // };
-// JSON.stringify(user2);
-// console.log(user2); // '{"name":"Manz","life":99}'
+// console.log(JSON.stringify(user2)); // {"name":"Manz","life":99}
 
-// // Se puede pasar un segundo parámetro al método .stringify() que será un aaray
+// // Se puede pasar un segundo parámetro al método .stringify() que será un array
 // const user100 = {
 //   name: "Manz",
 //   life: 99,
 //   power: 10,
 // };
-// JSON.stringify(user100, ["life"]); // '{"life":99}'
+// console.log(JSON.stringify(user100, ["life"])); // '{"life":99}'
 // JSON.stringify(user100, ["name", "power"]); // '{"name":"Manz","power":10}'
 // JSON.stringify(user100, []); // '{}'
 // JSON.stringify(user100, null); // '{"name":"Manz","life":99,"power":10}'
@@ -62,24 +60,25 @@
 // // }
 
 // // Desestructuración de objetos. Spread y rest
-// const user300 = {
-//   name300: "Manz",
-//   role300: "streamer",
-//   life300: 99,
-// };
-// // const { name300, role300, life300} = user300;
-// // imprimir uno por uno
+const user300 = {
+  name300: "Manz",
+  role300: "streamer",
+  life300: 99,
+};
+// const { name300, role300, life300} = user300;
+// imprimir uno por uno
 // console.log({ name300, role300 });
 // console.log({ life300 });
-// // imprimir todo
+// imprimir todo
 // console.log({ ...user300 });
-// // renombrar propiedades si lo deseamos
+// renombrar propiedades si lo deseamos
 // const { name300, role300: role400, life300 } = user300;
 // console.log({ name300, role400, life300 });
-// // valor por defecto propiedades
-// const { name, role = "normal user", life = 100 } = user;
+// valor por defecto propiedades
+// const { name300, role = "normal user", life = 100 } = user300;
+// console.log({ name300, role, life });
 
-// // recrear nuevos objetos apartir de otros, añadiendo nuevas props o sobreescribiendo antiguas props
+// recrear nuevos objetos apartir de otros, añadiendo nuevas props o sobreescribiendo antiguas props
 // const user50 = {
 //   name: "Manz",
 //   role: "streamer",
@@ -90,8 +89,10 @@
 //   power: 25, //añade nueva props power
 //   life: 50, //sobreescribe life con valor 50
 // };
+// console.log(user50); // { name: 'Manz', role: 'streamer', life: 99 }
+// console.log(fullUser); // { name: 'Manz', role: 'streamer', life: 50, power: 25 }
 
-// // ahora con datos no primitivos array, funciones, etc
+// ahora con datos no primitivos array, funciones, etc
 // const user51 = {
 //   name: "Manz",
 //   role: "streamer",
@@ -112,7 +113,7 @@
 // console.log(fullUser10.features); // ["program", "code", "paint"]
 // console.log(user51.features); // ["program", "code", "paint"]
 
-// // para no afectar directamente le objeto de uno con otro
+// para no afectar directamente le objeto de uno con otro
 // const user20 = {
 //   name: "Manz",
 //   role: "streamer",
@@ -122,15 +123,13 @@
 
 // // ...structuredClone(objeto) devuelve un nuevo objeto, y no la referencia.
 // const fullUser20 = {
-//   ...structuredClone(user),
+//   ...structuredClone(user20),
 //   power: 25,
 //   life: 50,
 // };
 // console.log(user20.features); // ["learn", "code", "paint"]
 // console.log(fullUser20.features); // ["learn", "code", "paint"]
-
 // fullUser20.features[0] = "program";
-
 // console.log(fullUser20.features); // ["program", "code", "paint"]
 // console.log(user20.features); // ["learn", "code", "paint"]
 
@@ -145,14 +144,14 @@
 //     hairColor: "brown",
 //   },
 // };
-// // Extraemos propiedad attributes (objeto con 3 propiedades)
-// const { attibutes} = user30;
-// console.log(attibutes);
-// // Extraemos propiedad height (number)
-// const { attibutes: {height} } = user30;
-// console.log(height);
-// // Extraemos propiedad height (number) y la cambiamos por nombre size
-// const { attibutes: {height: size} } = user30;
+// Extraemos propiedad attributes (objeto con 3 propiedades)
+// const { attibutes } = user30;
+// console.log(attibutes); // { height: '1.80', favColor: 'blue', hairColor: 'brown' }
+// Extraemos propiedad height (number)
+// const { attibutes: { height } } = user30;
+// console.log(height); // 1.80
+// Extraemos propiedad height (number) y la cambiamos por nombre size
+// const { attibutes: { height: size } } = user30;
 // console.log(size);
 
 // Desestructuración (rest)
@@ -225,7 +224,7 @@ Tipos complejos (no primitivos)
 ❌ No, referencia	⚠️ string	✅ Sí	✅ Sí
 ❌ No, referencia	❌ Devuelve TypeError	✅ Sí	✅ Sí
 ❌ No, referencia	⚠️ {} vacío	✅ Sí	✅ Sí
- / 	❌ No, referencia	⚠️ {} vacío	✅ Sí	✅ Sí
+/ 	❌ No, referencia	⚠️ {} vacío	✅ Sí	✅ Sí
 ❌ No, referencia	✅ Sí	✅ Sí	❌ Devuelve DOMException
- / 	❌ No, referencia	⚠️ null	✅ Sí	❌ Devuelve DOMException
+/ 	❌ No, referencia	⚠️ null	✅ Sí	❌ Devuelve DOMException
 Elemento del DOM	❌ No, referencia	⚠️ {} vacío	❌ No, referencia	❌ Devuelve DOMException */
